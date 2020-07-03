@@ -16,6 +16,6 @@ export const fetchData = async () => {
         return selectedData
 
     } catch (error) {
-        
+        console.log("Unable to fetch data")
     }
 }

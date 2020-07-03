@@ -7,10 +7,14 @@ import { fetchData } from './api';
 
 class App extends Component {
 
-    async componentDidMount() {
-        const data = await fetchData();
+    state = {
+        data: {}, 
+    }
 
-        console.log(data);
+    async componentDidMount() {
+        const fetchedData = await fetchData();
+
+        this.setState({ data: fetchedData });
 
     }
 
@@ -18,7 +22,7 @@ class App extends Component {
     render() {
         return (
             <div className={styles.container}>
-                <Cards />
+                <Cards data={this.state.data} />
                 <CountrySelector />
                 <Chart />
             </div>
