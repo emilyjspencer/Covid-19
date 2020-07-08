@@ -11,23 +11,35 @@ class App extends Component {
 
     state = {
         data: {}, 
+        country: '',
     }
 
     async componentDidMount() {
-        const fetchedData = await fetchData();
+        const data = await fetchData();
 
-        this.setState({ data: fetchedData });
+        this.setState({ data });
 
+    }
+
+    handleCountryChange = async (country) => {
+        const data = await fetchData(country)
+
+        console.log(data);
+        console.log(country);
+
+        this.setState({ data, country: country })
     }
 
 
     render() {
+        const { data, country } = this.state;
+
         return (
             <div className={styles.container}>
                 <img className={styles.image} src={image} alt="COVID-19" />
-                <Cards data={this.state.data} />
-                <CountrySelector />
-                <Chart />
+                <Cards data={data} />
+                <CountrySelector handleCountryChange={this.handleCountryChange} />
+                <Chart data={data} country={country} />
             </div>
         )
     }
