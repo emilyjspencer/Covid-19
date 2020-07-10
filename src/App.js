@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Cards, Chart, CountrySelector } from './components';
 import image from './T.png';
 
-
 import styles from './App.module.css';
 import { fetchData } from './api';
 
