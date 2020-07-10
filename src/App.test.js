@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import App from './App';
 import { ExpansionPanelActions } from '@material-ui/core';
+import Axios from 'axios';
 
 describe('App', () => {
     let wrapper;
@@ -20,4 +21,6 @@ describe('App', () => {
     it('information about countries is stored in the Apps state, initially empty', () => {
         expect(wrapper.state('country')).toEqual('');
     });
+
+    
 });
