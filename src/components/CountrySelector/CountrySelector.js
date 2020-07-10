@@ -25,7 +25,6 @@ import styles from './CountrySelector.module.css';
             <NativeSelect id="dropdown2" defaultValue="" onChange={(e) => handleCountryChange(e.target.value)} >
                 <option id="dropdown" color="white" value="">Global Daily Data - click the dropdown to select a country</option>
                 {countries.map((country, index) => <option key={index} value={country}>{country}</option>)}
-                <h1>Test</h1>
             </NativeSelect>
         </FormControl>
     )
